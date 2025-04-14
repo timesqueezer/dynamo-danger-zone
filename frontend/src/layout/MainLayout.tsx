@@ -19,8 +19,8 @@ export const MainLayout = () => {
             We get you to the Danger Zone
           </div>
 
-          <div className="h-48 flex items-center justify-center mb-4">
-            <img src="/danger_zone_image.webp" alt="Danger Zone" className="w-full h-auto" />
+          <div className="mb-4">
+            <img src="/danger_zone_image.jpg" alt="Danger Zone" className="w-full h-auto" />
           </div>
 
           <div className="bg-gray-700 text-white p-4 mb-4 text-center">
