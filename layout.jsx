@@ -41,21 +41,16 @@ const WebsiteLayout = () => {
       </div>
 
       {/* Navigation bar */}
-      <div className="bg-gray-700 text-white p-2 text-center mt-2">
-        navigation
+      <div className="p-2 text-center mt-2 flex">
+        {/* Navigation links */}
+        <div className="bg-gray-700 text-white p-2 mx-2 cursor-pointer">
+          All Trips
+        </div>
+        <div className="bg-gray-700 text-white p-2 mx-2 cursor-pointer">
+          Sorted by Dangerousness
+        </div>
       </div>
 
-      {/* Scroll bar/footer */}
-      <div className="flex border-t border-gray-300 mt-2">
-        <div className="w-12 bg-black text-white flex items-center justify-center">
-          &lt
-        </div>
-        <div className="h-6 bg-black w-1/4"></div>
-        <div className="h-6 bg-gray-200 flex-grow"></div>
-        <div className="w-12 flex items-center justify-center">
-          &gt
-        </div>
-      </div>
     </div>
   )
 }
