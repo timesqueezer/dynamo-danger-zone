@@ -5,6 +5,7 @@
     "danger": "Aktiver Vulkan mit flüssiger Lava",
     "why_go": "Trekking zum Lavasee auf dem Gipfel",
     "skull_rating": 5
+    "image_url": "images/1.jpg"
   },
   {
     "name": "Kakadu National Park",
@@ -12,6 +13,7 @@
     "danger": "Salzwasserkrokodile, Giftschlangen, Quallen",
     "why_go": "Natur, Aboriginal-Kunst, Abenteuer",
     "skull_rating": 3
+    "image_url": "images/2.jpg"
   },
   {
     "name": "Tornado Alley",
@@ -19,6 +21,7 @@
     "danger": "Tornados der Kategorie F5",
     "why_go": "Storm-Chasing-Touren",
     "skull_rating": 4
+    "image_url": "images/3.jpg"
   },
   {
     "name": "Death Road (Yungas Road)",
@@ -26,6 +29,7 @@
     "danger": "600m Abgrund, enge Schotterstraße",
     "why_go": "Mountainbike mit Ausblick",
     "skull_rating": 5
+    "image_url": "images/4.jpg"
   },
   {
     "name": "Gansbaai",
@@ -33,6 +37,7 @@
     "danger": "Großer Weißer Hai",
     "why_go": "Käfigtauchen",
     "skull_rating": 2
+    "image_url": "images/5.jpeg"
   },
   {
     "name": "Danakil-Wüste",
@@ -40,6 +45,7 @@
     "danger": "Extreme Hitze, Gase, Unruhen",
     "why_go": "Surreale Vulkanlandschaften",
     "skull_rating": 4
+    "image_url": "images/6.jpeg"
   },
   {
     "name": "Ilha da Queimada Grande (Snake Island)",
@@ -47,6 +53,7 @@
     "danger": "Tödliche Schlangen überall",
     "why_go": "Verbotene Insel-Legende",
     "skull_rating": 5
+    "image_url": "images/7.jpeg"
   },
   {
     "name": "Cenoten-Tauchen",
@@ -54,6 +61,7 @@
     "danger": "Höhlensysteme, Orientierung",
     "why_go": "Kristallklares Wasser, Unterwelt",
     "skull_rating": 3
+    "image_url": "images/8.jpg"
   },
   {
     "name": "Ciudad Juárez",
@@ -61,6 +69,7 @@
     "danger": "Kartelle, hohe Kriminalität",
     "why_go": "Städtische Spannung, Kultur",
     "skull_rating": 4
+    "image_url": "images/9.jpg"
   },
   {
     "name": "Tschernobyl",
@@ -68,5 +77,6 @@
     "danger": "Reststrahlung",
     "why_go": "Postapokalyptische Atmosphäre",
     "skull_rating": 3
+    "image_url": "images/10.jpg"
   }
 ]
