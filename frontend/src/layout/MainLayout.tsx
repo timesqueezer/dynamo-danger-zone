@@ -3,10 +3,10 @@ export const MainLayout = () => {
     <div className="max-w-6xl mx-auto border border-gray-800">
       {/* Header with logo and site name */}
       <header className="flex items-center p-4">
-        <div className="bg-gray-700 text-white p-4 w-32 text-center">
-          <img src="/logo_transparent.webp" alt="Logo" className="w-full h-auto" />
+        <div className="p-4 w-32 text-center">
+          <img src="/logo_black.webp" alt="Logo" className="w-full h-auto" />
         </div>
-        <div className="bg-gray-700 text-white p-4 ml-2 flex-grow text-center">
+        <div className="p-4 ml-2 text-center text-2xl font-bold">
           Dynamo Danger Zone
         </div>
       </header>
@@ -15,12 +15,12 @@ export const MainLayout = () => {
       <div className="flex p-4">
         {/* Left content section */}
         <div className="w-3/5 border border-gray-400 p-4 bg-gray-100">
-          <div className="bg-gray-700 text-white p-2 mb-4 text-center">
-            title
+          <div className="p-2 mb-4 text-center">
+            We get you to the Danger Zone
           </div>
 
-          <div className="bg-gray-700 text-white h-48 flex items-center justify-center mb-4">
-            image
+          <div className="h-48 flex items-center justify-center mb-4">
+            <img src="/danger_zone_image.webp" alt="Danger Zone" className="w-full h-auto" />
           </div>
 
           <div className="bg-gray-700 text-white p-4 mb-4 text-center">
