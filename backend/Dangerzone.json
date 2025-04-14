@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Mount Nyiragongo",
+    "country": "Demokratische Republik Kongo",
+    "danger": "Aktiver Vulkan mit flüssiger Lava",
+    "why_go": "Trekking zum Lavasee auf dem Gipfel",
+    "skull_rating": 5
+  },
+  {
+    "name": "Kakadu National Park",
+    "country": "Australien",
+    "danger": "Salzwasserkrokodile, Giftschlangen, Quallen",
+    "why_go": "Natur, Aboriginal-Kunst, Abenteuer",
+    "skull_rating": 3
+  },
+  {
+    "name": "Tornado Alley",
+    "country": "USA",
+    "danger": "Tornados der Kategorie F5",
+    "why_go": "Storm-Chasing-Touren",
+    "skull_rating": 4
+  },
+  {
+    "name": "Death Road (Yungas Road)",
+    "country": "Bolivien",
+    "danger": "600m Abgrund, enge Schotterstraße",
+    "why_go": "Mountainbike mit Ausblick",
+    "skull_rating": 5
+  },
+  {
+    "name": "Gansbaai",
+    "country": "Südafrika",
+    "danger": "Großer Weißer Hai",
+    "why_go": "Käfigtauchen",
+    "skull_rating": 2
+  },
+  {
+    "name": "Danakil-Wüste",
+    "country": "Äthiopien",
+    "danger": "Extreme Hitze, Gase, Unruhen",
+    "why_go": "Surreale Vulkanlandschaften",
+    "skull_rating": 4
+  },
+  {
+    "name": "Ilha da Queimada Grande (Snake Island)",
+    "country": "Brasilien",
+    "danger": "Tödliche Schlangen überall",
+    "why_go": "Verbotene Insel-Legende",
+    "skull_rating": 5
+  },
+  {
+    "name": "Cenoten-Tauchen",
+    "country": "Mexiko",
+    "danger": "Höhlensysteme, Orientierung",
+    "why_go": "Kristallklares Wasser, Unterwelt",
+    "skull_rating": 3
+  },
+  {
+    "name": "Ciudad Juárez",
+    "country": "Mexiko",
+    "danger": "Kartelle, hohe Kriminalität",
+    "why_go": "Städtische Spannung, Kultur",
+    "skull_rating": 4
+  },
+  {
+    "name": "Tschernobyl",
+    "country": "Ukraine",
+    "danger": "Reststrahlung",
+    "why_go": "Postapokalyptische Atmosphäre",
+    "skull_rating": 3
+  }
+]
