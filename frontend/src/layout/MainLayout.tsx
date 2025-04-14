@@ -14,7 +14,7 @@ export const MainLayout = () => {
       {/* Main content area */}
       <div className="flex p-4">
         {/* Left content section */}
-        <div className="w-3/5 border border-gray-400 p-4 bg-gray-100">
+        <div className="border border-gray-400 p-4 bg-gray-100">
           <div className="p-2 mb-4 text-center">
             We get you to the Danger Zone
           </div>
@@ -23,8 +23,19 @@ export const MainLayout = () => {
             <img src="/danger_zone_image.jpg" alt="Danger Zone" className="w-full h-auto" />
           </div>
 
-          <div className="bg-gray-700 text-white p-4 mb-4 text-center">
-            description
+          <div className="p-4 mb-4">
+            <div className="grid grid-cols-3">
+              <dt className="text-sm/6 font-medium text-gray-900 font-semibold">Gefahr:</dt>
+              <dd className="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">Einer der aktivsten Vulkane der Welt mit extrem flüssiger Lava.</dd>
+            </div>
+            <div className="grid grid-cols-3">
+              <dt className="text-sm/6 font-medium text-gray-900 font-semibold">Warum hin?</dt>
+              <dd className="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">Trekking auf den Gipfel mit Blick in den brodelnden Lavasee.</dd>
+            </div>
+            <div className="grid grid-cols-3">
+              <dt className="text-sm/6 font-medium text-gray-900 font-semibold">Rating:</dt>
+              <dd className="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">💀💀💀💀💀</dd>
+            </div>
           </div>
 
           <div className="bg-gray-700 text-white p-2 text-center">
