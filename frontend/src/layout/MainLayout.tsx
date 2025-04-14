@@ -3,9 +3,11 @@ export const MainLayout = () => {
     <div className="max-w-6xl mx-auto border border-gray-800">
       {/* Header with logo and site name */}
       <header className="flex items-center p-4">
-        <div className="bg-gray-700 text-white p-4 w-32 text-center">logo</div>
+        <div className="bg-gray-700 text-white p-4 w-32 text-center">
+          <img src="/logo_transparent.webp" alt="Logo" className="w-full h-auto" />
+        </div>
         <div className="bg-gray-700 text-white p-4 ml-2 flex-grow text-center">
-          site name
+          Dynamo Danger Zone
         </div>
       </header>
 
