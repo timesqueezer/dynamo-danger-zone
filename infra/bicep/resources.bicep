@@ -101,7 +101,7 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2024-01-01' = {
 } */
 
 // Resources needed to secure Cosmos DB behind a private endpoint
-resource dbPrivateEndpoint 'Microsoft.Network/privateEndpoints@2023-04-01' = {
+/* resource dbPrivateEndpoint 'Microsoft.Network/privateEndpoints@2023-04-01' = {
   name: '${appName}-db-privateEndpoint'
   location: location
   properties: {
@@ -131,7 +131,7 @@ resource dbPrivateEndpoint 'Microsoft.Network/privateEndpoints@2023-04-01' = {
       ]
     }
   }
-}
+} */
 resource privateDnsZoneDB 'Microsoft.Network/privateDnsZones@2020-06-01' = {
   name: 'privatelink.mongo.cosmos.azure.com'
   location: 'global'
