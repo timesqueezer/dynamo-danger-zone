@@ -37,7 +37,7 @@ stages:
             --template-file bicep/infra/main.bicep \
             --parameters @bicep/infra/parameters.${{ parameters.environmentName }}.json
 
-- stage: deploy-infra
+- stage: deploy_infra
   jobs:
   - deployment: DeployInfrastructure
     environment: dev
@@ -137,7 +137,7 @@ stages:
 
                 echo "Variable group '$groupName' has been updated with latest infrastructure outputs."
 
-- stage: deploy-backend
+- stage: deploy_backend
   jobs:
   - deployment: DeployApp
     environment: ${{ parameters.environmentName }}
@@ -157,7 +157,7 @@ stages:
               package: '$(Build.SourcesDirectory)/backend'
               deploymentMethod: 'zipDeploy'
 
-- stage: deploy-frontend
+- stage: deploy_frontend
   jobs:
   - deployment: DeployFrontend
     environment: ${{ parameters.environmentName }}
