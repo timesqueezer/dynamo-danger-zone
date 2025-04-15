@@ -74,7 +74,7 @@ export const Details = () => {
 
       <div className="mt-8 flex flex-wrap gap-3 justify-center">
         {danger.map((item) => (
-          <span className="bg-red-700 text-white px-3 py-1 rounded-full text-sm font-semibold">
+          <span className="bg-red-700 text-white px-3 py-1 rounded-full text-sm font-semibold" key={item}>
             {item}
           </span>
         ))}

@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router";
+import { useNavigate, Link } from "react-router";
 import { Trips } from "../constants";
 import { getSkullRatingVisual } from "../helper";
 
@@ -25,10 +25,7 @@ export const Home = () => {
         Alle Trips anzeigen
       </button>
 
-      <div
-        className="border border-gray-300 rounded-lg shadow-md bg-white mb-5 cursor-pointer mt-5"
-        onClick={() => navigate(`/details/${id}`)}
-      >
+      <Link to={`/details/${id}`} className="border border-gray-300 rounded-lg shadow-md bg-white mb-5 cursor-pointer mt-5">
         <div className="p-3 mb-4 text-center bg-red-800 text-white font-bold text-lg">
           Von unseren Experten empfohlen
         </div>
@@ -69,13 +66,13 @@ export const Home = () => {
         </div>
 
         <div className="flex flex-wrap gap-2 p-4 justify-center">
-          {danger.map((item, index) => (
-            <span className="bg-red-700 text-white px-3 py-1 rounded-full text-sm font-semibold">
+          {danger.map((item) => (
+            <span className="bg-red-700 text-white px-3 py-1 rounded-full text-sm font-semibold" key={item}>
               {item}
             </span>
           ))}
         </div>
-      </div>
+      </Link>
     </div>
   );
 };

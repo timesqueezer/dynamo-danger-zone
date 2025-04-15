@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router";
+import { Link } from "react-router";
 import { getSkullRatingVisual } from "../helper";
 
 interface IAdventureListItemProps {
@@ -12,14 +12,12 @@ interface IAdventureListItemProps {
 }
 
 export const AdventureListItem = (props: IAdventureListItemProps) => {
-  const { name, description, skull_rating, id, image_url, danger, why_go } =
-    props;
-  const navigate = useNavigate();
+  const { name, description, skull_rating, id, image_url, danger, why_go } = props;
 
   return (
-    <div
+    <Link
       className="border border-gray-300 rounded-lg shadow-md bg-white mb-5 cursor-pointer"
-      onClick={() => navigate(`/details/${id}`)}
+      to={`/details/${id}`}
     >
       {/* <div className="p-3 mb-4 text-center bg-red-800 text-white font-bold text-lg">
         We get you to the Danger Zone
@@ -59,12 +57,12 @@ export const AdventureListItem = (props: IAdventureListItemProps) => {
       </div>
 
       <div className="flex flex-wrap gap-2 p-4 justify-center">
-        {danger.map((item, index) => (
-          <span className="bg-red-700 text-white px-3 py-1 rounded-full text-sm font-semibold">
+        {danger.map((item) => (
+          <span className="bg-red-700 text-white px-3 py-1 rounded-full text-sm font-semibold" key={item}>
             {item}
           </span>
         ))}
       </div>
-    </div>
+    </Link>
   );
 };
