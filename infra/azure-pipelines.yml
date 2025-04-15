@@ -34,8 +34,8 @@ stages:
         inlineScript: |
           az deployment sub what-if \
             --location germanywestcentral \
-            --template-file bicep/infra/main.bicep \
-            --parameters @bicep/infra/parameters.${{ parameters.environmentName }}.json
+            --template-file infra/bicep/main.bicep \
+            --parameters @infra/bicep/parameters.${{ parameters.environmentName }}.json
 
 - stage: deploy_infra
   jobs:
@@ -55,8 +55,8 @@ stages:
                 # Deploy infrastructure
                 az deployment sub create \
                   --location germanywestcentral \
-                  --template-file bicep/infra/main.bicep \
-                  --parameters @bicep/infra/parameters.${{ parameters.environmentName }}.json \
+                  --template-file infra/bicep/main.bicep \
+                  --parameters @infra/bicep/parameters.${{ parameters.environmentName }}.json \
                   --name infra-deployment-${{ parameters.environmentName }}
 
                 echo "Fetching deployment outputs..."
