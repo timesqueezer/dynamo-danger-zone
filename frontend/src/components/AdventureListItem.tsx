@@ -8,10 +8,12 @@ interface IAdventureListItemProps {
   id: string;
   image_url: string;
   danger: string[];
+  why_go: string;
 }
 
 export const AdventureListItem = (props: IAdventureListItemProps) => {
-  const { name, description, skull_rating, id, image_url, danger } = props;
+  const { name, description, skull_rating, id, image_url, danger, why_go } =
+    props;
   const navigate = useNavigate();
 
   return (
@@ -19,11 +21,11 @@ export const AdventureListItem = (props: IAdventureListItemProps) => {
       className="border border-gray-300 rounded-lg shadow-md bg-white mb-5 cursor-pointer"
       onClick={() => navigate(`/details/${id}`)}
     >
-      <div className="p-3 mb-4 text-center bg-red-800 text-white font-bold text-lg">
+      {/* <div className="p-3 mb-4 text-center bg-red-800 text-white font-bold text-lg">
         We get you to the Danger Zone
-      </div>
+      </div> */}
 
-      <div className="flex flex-row">
+      <div className="flex flex-row pt-4">
         <div className="relative mb-4 w-1/4 rounded-lg ml-4">
           <img
             src={image_url}
@@ -44,7 +46,7 @@ export const AdventureListItem = (props: IAdventureListItemProps) => {
           <div className="grid grid-cols-3">
             <dt className="text-sm/6 font-medium font-semibold">Warum hin?</dt>
             <dd className="mt-1 text-sm/6 text-gray-100 sm:col-span-2 sm:mt-0">
-              Trekking auf den Gipfel mit Blick in den brodelnden Lavasee.
+              {why_go}
             </dd>
           </div>
           <div className="grid grid-cols-3">
