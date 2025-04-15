@@ -28,18 +28,18 @@ export const MainLayout = (props: IMainLayoutProps) => {
       {/* Navigation bar */}
       <div className="p-4 text-center mt-2 flex justify-center gap-4 bg-gray-100 rounded-b-lg border-t border-gray-300">
         {/* Navigation links */}
-        <div
+        <button
           className="bg-red-700 hover:bg-red-800 text-white px-6 py-3 rounded-md cursor-pointer transition duration-200 shadow-md font-semibold cursor-pointer"
           onClick={() => navigate("/list")}
         >
           All Trips
-        </div>
-        <div className="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-md cursor-pointer transition duration-200 shadow-md font-semibold">
+        </button>
+        <button className="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-md cursor-pointer transition duration-200 shadow-md font-semibold">
           Sorted by Dangerousness
-        </div>
-        <div className="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-md cursor-pointer transition duration-200 shadow-md font-semibold">
+        </button>
+        <button className="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-md cursor-pointer transition duration-200 shadow-md font-semibold">
           Book Now
-        </div>
+        </button>
       </div>
     </div>
   );
