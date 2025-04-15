@@ -1,3 +1,14 @@
+import image1 from "../assets/1.jpg";
+import image10 from "../assets/10.jpg";
+import image2 from "../assets/2.jpg";
+import image3 from "../assets/3.jpg";
+import image4 from "../assets/4.jpg";
+import image5 from "../assets/5.jpeg";
+import image6 from "../assets/6.jpeg";
+import image7 from "../assets/7.jpeg";
+import image8 from "../assets/8.jpg";
+import image9 from "../assets/9.jpg";
+
 export enum AppRoutes {
   HOME = "/",
   LIST = "/list",
@@ -11,7 +22,7 @@ export const Trips = [
     danger: "Aktiver Vulkan mit flüssiger Lava",
     why_go: "Trekking zum Lavasee auf dem Gipfel",
     skull_rating: 5,
-    image_url: "images/1.jpg",
+    image_url: image1,
     description:
       "Ein abenteuerlicher Aufstieg zu einem der wenigen Lavaseen der Welt – intensives Naturerlebnis garantiert.",
   },
@@ -22,7 +33,7 @@ export const Trips = [
     danger: "Salzwasserkrokodile, Giftschlangen, Quallen",
     why_go: "Natur, Aboriginal-Kunst, Abenteuer",
     skull_rating: 3,
-    image_url: "images/2.jpg",
+    image_url: image2,
     description:
       "Ein riesiges Naturreservat voller wilder Schönheit und kulturellem Erbe – aber nicht ohne Risiken.",
   },
@@ -33,7 +44,7 @@ export const Trips = [
     danger: "Tornados der Kategorie F5",
     why_go: "Storm-Chasing-Touren",
     skull_rating: 4,
-    image_url: "images/3.jpg",
+    image_url: image3,
     description:
       "Für Adrenalinjunkies: Verfolge gewaltige Stürme hautnah mit erfahrenen Storm-Chasern.",
   },
@@ -44,7 +55,7 @@ export const Trips = [
     danger: "600m Abgrund, enge Schotterstraße",
     why_go: "Mountainbike mit Ausblick",
     skull_rating: 5,
-    image_url: "images/4.jpg",
+    image_url: image4,
     description:
       "Ein gefährlicher Nervenkitzel auf zwei Rädern – spektakuläre Ausblicke inklusive.",
   },
@@ -55,7 +66,7 @@ export const Trips = [
     danger: "Großer Weißer Hai",
     why_go: "Käfigtauchen",
     skull_rating: 2,
-    image_url: "images/5.jpeg",
+    image_url: image5,
     description:
       "Komme den gefährlichsten Raubfischen der Welt näher – sicher im Käfig, aber nichts für schwache Nerven.",
   },
@@ -66,7 +77,7 @@ export const Trips = [
     danger: "Extreme Hitze, Gase, Unruhen",
     why_go: "Surreale Vulkanlandschaften",
     skull_rating: 4,
-    image_url: "images/6.jpeg",
+    image_url: image6,
     description:
       "Eine der heißesten und unwirtlichsten Regionen der Erde – faszinierend, fremd, gefährlich.",
   },
@@ -77,7 +88,7 @@ export const Trips = [
     danger: "Tödliche Schlangen überall",
     why_go: "Verbotene Insel-Legende",
     skull_rating: 5,
-    image_url: "images/7.jpeg",
+    image_url: image7,
     description:
       "Verboten und tödlich – eine Insel voller Schlangen, die selbst Forschern das Fürchten lehrt.",
   },
@@ -88,7 +99,7 @@ export const Trips = [
     danger: "Höhlensysteme, Orientierung",
     why_go: "Kristallklares Wasser, Unterwelt",
     skull_rating: 3,
-    image_url: "images/8.jpg",
+    image_url: image8,
     description:
       "Magisches Taucherlebnis in den geheimnisvollen Unterwasserhöhlen Yucatáns – Schönheit trifft Risiko.",
   },
@@ -99,7 +110,7 @@ export const Trips = [
     danger: "Kartelle, hohe Kriminalität",
     why_go: "Städtische Spannung, Kultur",
     skull_rating: 4,
-    image_url: "images/9.jpg",
+    image_url: image9,
     description:
       "Ein Ort zwischen Kultur und Gefahr – intensive Einblicke in das Leben an der Grenze.",
   },
@@ -110,7 +121,7 @@ export const Trips = [
     danger: "Reststrahlung",
     why_go: "Postapokalyptische Atmosphäre",
     skull_rating: 3,
-    image_url: "images/10.jpg",
+    image_url: image10,
     description:
       "Eine Geisterstadt wie aus einem Film – faszinierend und bedrückend zugleich.",
   },

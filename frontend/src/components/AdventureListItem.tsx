@@ -6,10 +6,11 @@ interface IAdventureListItemProps {
   description: string;
   skull_rating: number;
   id: string;
+  image_url: string;
 }
 
 export const AdventureListItem = (props: IAdventureListItemProps) => {
-  const { name, description, skull_rating, id } = props;
+  const { name, description, skull_rating, id, image_url } = props;
   const navigate = useNavigate();
 
   return (
@@ -24,7 +25,7 @@ export const AdventureListItem = (props: IAdventureListItemProps) => {
       <div className="flex flex-row">
         <div className="relative mb-4 w-1/4 rounded-lg">
           <img
-            src="/danger_zone_image.jpg"
+            src={image_url}
             alt="Danger Zone"
             className="w-full h-full object-cover"
           />
