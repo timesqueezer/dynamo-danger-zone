@@ -33,7 +33,7 @@ stages:
         scriptLocation: 'inlineScript'
         inlineScript: |
           az deployment group what-if \
-            --resource--group rg-Matz-Jona-Radloff \
+            --resource-group rg-Matz-Jona-Radloff \
             --template-file infra/bicep/main.bicep \
             --parameters @infra/bicep/parameters.${{ parameters.environmentName }}.json
 
@@ -54,7 +54,7 @@ stages:
               inlineScript: |
                 # Deploy infrastructure
                 az deployment group create \
-                  --resource--group rg-Matz-Jona-Radloff \
+                  --resource-group rg-Matz-Jona-Radloff \
                   --template-file infra/bicep/main.bicep \
                   --parameters @infra/bicep/parameters.${{ parameters.environmentName }}.json \
                   --name infra-deployment-${{ parameters.environmentName }}
