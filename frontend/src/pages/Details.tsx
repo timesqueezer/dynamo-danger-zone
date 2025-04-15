@@ -1,18 +1,14 @@
 // import { useParams } from "react-router";
 
+import { useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { Trips } from "../constants";
 import { getSkullRatingVisual } from "../helper";
 
-// export const Details = () => {
-//   let { id } = useParams();
-
-//   return <>{id}</>;
-// };
-
 export const Details = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [showFullscreen, setShowFullscreen] = useState(false);
 
   const trip = Trips.find((t) => t.id === id);
 
@@ -34,6 +30,10 @@ export const Details = () => {
     image_url,
   } = trip;
 
+  const handleToggleFullscreen = () => {
+    setShowFullscreen(!showFullscreen);
+  };
+
   return (
     <div className="max-w-4xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
       <button
@@ -50,6 +50,7 @@ export const Details = () => {
 
       <div className="relative h-72 rounded-lg overflow-hidden mb-6">
         <img
+          onClick={handleToggleFullscreen}
           src={image_url}
           alt={name}
           className="w-full h-full object-cover"
@@ -85,6 +86,22 @@ export const Details = () => {
           </span>
         ))}
       </div>
+      {showFullscreen && (
+        <>
+          <div className="flex items-center justify-center fixed top-0 left-0 z-100 m-40">
+            <img
+              onClick={handleToggleFullscreen}
+              src={image_url}
+              alt={name}
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div
+            className="bg-black opacity-80 fixed inset-0 z-50"
+            onClick={handleToggleFullscreen}
+          ></div>
+        </>
+      )}
     </div>
   );
 };

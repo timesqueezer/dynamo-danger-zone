@@ -1,9 +1,12 @@
+import { useNavigate } from "react-router";
+
 interface IMainLayoutProps {
   children?: React.ReactNode;
 }
 
 export const MainLayout = (props: IMainLayoutProps) => {
   const { children } = props;
+  const navigate = useNavigate();
   return (
     <div className="max-w-6xl mx-auto bg-gray-50">
       {/* Header with logo and site name */}
@@ -21,21 +24,14 @@ export const MainLayout = (props: IMainLayoutProps) => {
 
       {/* Main content area */}
       <div className=" p-6 gap-6">{children}</div>
-      {/* <div className=" p-6 gap-6">
-        <div className="flex flex-col">
-          <AdventureListItem />
-          <AdventureListItem />
-          <AdventureListItem />
-          <AdventureListItem />
-        </div>
-        <div className="w-2/5 border border-gray-300 rounded-lg shadow-md bg-white p-4">
-        </div>
-      </div> */}
 
       {/* Navigation bar */}
       <div className="p-4 text-center mt-2 flex justify-center gap-4 bg-gray-100 rounded-b-lg border-t border-gray-300">
         {/* Navigation links */}
-        <div className="bg-red-700 hover:bg-red-800 text-white px-6 py-3 rounded-md cursor-pointer transition duration-200 shadow-md font-semibold">
+        <div
+          className="bg-red-700 hover:bg-red-800 text-white px-6 py-3 rounded-md cursor-pointer transition duration-200 shadow-md font-semibold cursor-pointer"
+          onClick={() => navigate("/list")}
+        >
           All Trips
         </div>
         <div className="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-md cursor-pointer transition duration-200 shadow-md font-semibold">
