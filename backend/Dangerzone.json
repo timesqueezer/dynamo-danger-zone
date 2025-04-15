@@ -4,7 +4,7 @@
     "country": "Demokratische Republik Kongo",
     "danger": "Aktiver Vulkan mit flüssiger Lava",
     "why_go": "Trekking zum Lavasee auf dem Gipfel",
-    "skull_rating": 5
+    "skull_rating": 5,
     "image_url": "images/1.jpg"
   },
   {
@@ -12,7 +12,7 @@
     "country": "Australien",
     "danger": "Salzwasserkrokodile, Giftschlangen, Quallen",
     "why_go": "Natur, Aboriginal-Kunst, Abenteuer",
-    "skull_rating": 3
+    "skull_rating": 3,
     "image_url": "images/2.jpg"
   },
   {
@@ -20,7 +20,7 @@
     "country": "USA",
     "danger": "Tornados der Kategorie F5",
     "why_go": "Storm-Chasing-Touren",
-    "skull_rating": 4
+    "skull_rating": 4,
     "image_url": "images/3.jpg"
   },
   {
@@ -28,7 +28,7 @@
     "country": "Bolivien",
     "danger": "600m Abgrund, enge Schotterstraße",
     "why_go": "Mountainbike mit Ausblick",
-    "skull_rating": 5
+    "skull_rating": 5,
     "image_url": "images/4.jpg"
   },
   {
@@ -36,7 +36,7 @@
     "country": "Südafrika",
     "danger": "Großer Weißer Hai",
     "why_go": "Käfigtauchen",
-    "skull_rating": 2
+    "skull_rating": 2,
     "image_url": "images/5.jpeg"
   },
   {
@@ -44,7 +44,7 @@
     "country": "Äthiopien",
     "danger": "Extreme Hitze, Gase, Unruhen",
     "why_go": "Surreale Vulkanlandschaften",
-    "skull_rating": 4
+    "skull_rating": 4,
     "image_url": "images/6.jpeg"
   },
   {
@@ -52,7 +52,7 @@
     "country": "Brasilien",
     "danger": "Tödliche Schlangen überall",
     "why_go": "Verbotene Insel-Legende",
-    "skull_rating": 5
+    "skull_rating": 5,
     "image_url": "images/7.jpeg"
   },
   {
@@ -60,7 +60,7 @@
     "country": "Mexiko",
     "danger": "Höhlensysteme, Orientierung",
     "why_go": "Kristallklares Wasser, Unterwelt",
-    "skull_rating": 3
+    "skull_rating": 3,
     "image_url": "images/8.jpg"
   },
   {
@@ -68,7 +68,7 @@
     "country": "Mexiko",
     "danger": "Kartelle, hohe Kriminalität",
     "why_go": "Städtische Spannung, Kultur",
-    "skull_rating": 4
+    "skull_rating": 4,
     "image_url": "images/9.jpg"
   },
   {
@@ -76,7 +76,7 @@
     "country": "Ukraine",
     "danger": "Reststrahlung",
     "why_go": "Postapokalyptische Atmosphäre",
-    "skull_rating": 3
+    "skull_rating": 3,
     "image_url": "images/10.jpg"
   }
 ]
