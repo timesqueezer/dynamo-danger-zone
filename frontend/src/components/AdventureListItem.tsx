@@ -1,6 +1,22 @@
-export const AdventureListItem = () => {
+import { useNavigate } from "react-router";
+import { getSkullRatingVisual } from "../helper";
+
+interface IAdventureListItemProps {
+  name: string;
+  description: string;
+  skull_rating: number;
+  id: string;
+}
+
+export const AdventureListItem = (props: IAdventureListItemProps) => {
+  const { name, description, skull_rating, id } = props;
+  const navigate = useNavigate();
+
   return (
-    <div className="border border-gray-300 rounded-lg shadow-md bg-white mb-5">
+    <div
+      className="border border-gray-300 rounded-lg shadow-md bg-white mb-5 cursor-pointer"
+      onClick={() => navigate(`/details/${id}`)}
+    >
       <div className="p-3 mb-4 text-center bg-red-800 text-white font-bold text-lg">
         We get you to the Danger Zone
       </div>
@@ -15,12 +31,12 @@ export const AdventureListItem = () => {
         </div>
 
         <div className="bg-gray-800 text-white p-5 mb-4 mx-4 rounded-lg grow">
-          <h2 className="font-bold text-xl mb-2">Experience the Thrill</h2>
+          <h2 className="font-bold text-xl mb-2">{name}</h2>
 
           <div className="grid grid-cols-3">
             <dt className="text-sm/6 font-medium font-semibold">Gefahr:</dt>
             <dd className="mt-1 text-sm/6 text-gray-100 sm:col-span-2 sm:mt-0">
-              Einer der aktivsten Vulkane der Welt mit extrem flüssiger Lava.
+              {description}
             </dd>
           </div>
           <div className="grid grid-cols-3">
@@ -32,7 +48,7 @@ export const AdventureListItem = () => {
           <div className="grid grid-cols-3">
             <dt className="text-sm/6 font-medium font-semibold">Rating:</dt>
             <dd className="mt-1 text-sm/6 text-gray-100 sm:col-span-2 sm:mt-0">
-              💀💀💀💀💀
+              {getSkullRatingVisual(skull_rating)}
             </dd>
           </div>
         </div>
