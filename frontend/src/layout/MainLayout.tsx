@@ -1,3 +1,5 @@
+import { AdventureListItem } from "../components/AdventureListItem";
+
 export const MainLayout = () => {
   return (
     <div className="max-w-6xl mx-auto bg-gray-50">
@@ -8,52 +10,20 @@ export const MainLayout = () => {
         </div>
         <div className="p-4 ml-4 text-3xl font-extrabold tracking-wide">
           Dynamo Danger Zone
-          <div className="text-sm font-normal mt-1 text-red-200">Extreme adventures for thrill seekers</div>
+          <div className="text-sm font-normal mt-1 text-red-200">
+            Extreme adventures for thrill seekers
+          </div>
         </div>
       </header>
 
       {/* Main content area */}
-      <div className="flex p-6 gap-6">
+      <div className=" p-6 gap-6">
         {/* Left content section */}
-        <div className="w-3/5 border border-gray-300 rounded-lg shadow-md overflow-hidden bg-white">
-          <div className="p-3 mb-4 text-center bg-red-800 text-white font-bold text-lg">
-            We get you to the Danger Zone
-          </div>
-
-          <div className="relative mb-4">
-            <img
-              src="/danger_zone_image.jpg"
-              alt="Danger Zone"
-              className="w-full h-auto object-cover"
-            />
-            {/* <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white p-3 text-center font-bold">
-              Are you ready for the ultimate adventure?
-            </div> */}
-          </div>
-
-          <div className="bg-gray-800 text-white p-5 mb-4 mx-4 rounded-lg shadow-inner">
-            <h2 className="font-bold text-xl mb-2">Experience the Thrill</h2>
-
-            <div className="grid grid-cols-3">
-              <dt className="text-sm/6 font-medium font-semibold">Gefahr:</dt>
-              <dd className="mt-1 text-sm/6 text-gray-100 sm:col-span-2 sm:mt-0">Einer der aktivsten Vulkane der Welt mit extrem flüssiger Lava.</dd>
-            </div>
-            <div className="grid grid-cols-3">
-              <dt className="text-sm/6 font-medium font-semibold">Warum hin?</dt>
-              <dd className="mt-1 text-sm/6 text-gray-100 sm:col-span-2 sm:mt-0">Trekking auf den Gipfel mit Blick in den brodelnden Lavasee.</dd>
-            </div>
-            <div className="grid grid-cols-3">
-              <dt className="text-sm/6 font-medium font-semibold">Rating:</dt>
-              <dd className="mt-1 text-sm/6 text-gray-100 sm:col-span-2 sm:mt-0">💀💀💀💀💀</dd>
-            </div>
-          </div>
-
-          <div className="flex flex-wrap gap-2 p-4 justify-center">
-            <span className="bg-red-700 text-white px-3 py-1 rounded-full text-sm font-semibold">Extreme Sports</span>
-            <span className="bg-red-700 text-white px-3 py-1 rounded-full text-sm font-semibold">Mountain Climbing</span>
-            <span className="bg-red-700 text-white px-3 py-1 rounded-full text-sm font-semibold">Shark Diving</span>
-            <span className="bg-red-700 text-white px-3 py-1 rounded-full text-sm font-semibold">Volcano Trekking</span>
-          </div>
+        <div className="flex flex-col">
+          <AdventureListItem />
+          <AdventureListItem />
+          <AdventureListItem />
+          <AdventureListItem />
         </div>
 
         {/* Right sidebar */}
