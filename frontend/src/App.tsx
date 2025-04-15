@@ -1,10 +1,10 @@
 import "./App.css";
-import MainLayout from "./layout/MainLayout";
+import { AppRoutes } from "./navigation/AppRoutes";
 
 function App() {
   return (
     <div className="App">
-      <MainLayout />
+      <AppRoutes />
     </div>
   );
 }
