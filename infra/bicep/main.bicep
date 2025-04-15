@@ -1,4 +1,4 @@
-targetScope = 'subscription'
+targetScope = 'resourceGroup'
 
 @minLength(1)
 @maxLength(64)
@@ -11,14 +11,14 @@ param location string
 
 var resourceToken = toLower(uniqueString(subscription().id, name, location))
 
-resource resourceGroup 'Microsoft.Resources/resourceGroups@2021-04-01' existing = {
-  name: 'rg-Matz-Jona-Radloff'
-}
+// resource resourceGroup 'Microsoft.Resources/resourceGroups@2021-04-01' existing = {
+//   name: 'rg-Matz-Jona-Radloff'
+// }
 // rg-Matz-Jona-Radloff
 
 module resources 'resources.bicep' = {
   name: 'resources'
-  scope: resourceGroup
+  // scope: resourceGroup
   params: {
     name: name
     location: location

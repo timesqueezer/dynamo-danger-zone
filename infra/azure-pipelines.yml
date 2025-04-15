@@ -32,8 +32,8 @@ stages:
         scriptType: 'bash'
         scriptLocation: 'inlineScript'
         inlineScript: |
-          az deployment sub what-if \
-            --location germanywestcentral \
+          az deployment group what-if \
+            --resource--group rg-Matz-Jona-Radloff \
             --template-file infra/bicep/main.bicep \
             --parameters @infra/bicep/parameters.${{ parameters.environmentName }}.json
 
@@ -53,14 +53,14 @@ stages:
               scriptLocation: 'inlineScript'
               inlineScript: |
                 # Deploy infrastructure
-                az deployment sub create \
-                  --location germanywestcentral \
+                az deployment group create \
+                  --resource--group rg-Matz-Jona-Radloff \
                   --template-file infra/bicep/main.bicep \
                   --parameters @infra/bicep/parameters.${{ parameters.environmentName }}.json \
                   --name infra-deployment-${{ parameters.environmentName }}
 
                 echo "Fetching deployment outputs..."
-                outputs=$(az deployment sub show \
+                outputs=$(az deployment group show \
                   --name infra-deployment-${{ parameters.environmentName }} \
                   --output json \
                   --query "properties.outputs")
