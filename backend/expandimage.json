@@ -1,0 +1,44 @@
+{
+  "image": {
+    "src": "images/1.jpg",
+    "alt": "Thumbnail",
+    "id": "thumbnail",
+    "class": "thumbnail"
+  },
+  "overlay": {
+    "id": "overlay",
+    "class": "overlay",
+    "img": {
+      "src": "images/1.jpg",
+      "alt": "Expanded Image"
+    }
+  },
+  "styles": {
+    ".thumbnail": {
+      "width": "200px",
+      "cursor": "pointer"
+    },
+    ".overlay": {
+      "position": "fixed",
+      "display": "none",
+      "top": "0",
+      "left": "0",
+      "right": "0",
+      "bottom": "0",
+      "backgroundColor": "rgba(0, 0, 0, 0.8)",
+      "justifyContent": "center",
+      "alignItems": "center",
+      "zIndex": "1000"
+    },
+    ".overlay img": {
+      "maxWidth": "90%",
+      "maxHeight": "90%",
+      "boxShadow": "0 0 20px #fff"
+    }
+  },
+  "scripts": {
+    "onThumbnailClick": "overlay.style.display = 'flex';",
+    "onOverlayClick": "if (event.target === overlay) overlay.style.display = 'none';",
+    "onEscapeKey": "if (event.key === 'Escape') overlay.style.display = 'none';"
+  }
+}
