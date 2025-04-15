@@ -7,10 +7,11 @@ interface IAdventureListItemProps {
   skull_rating: number;
   id: string;
   image_url: string;
+  danger: string[];
 }
 
 export const AdventureListItem = (props: IAdventureListItemProps) => {
-  const { name, description, skull_rating, id, image_url } = props;
+  const { name, description, skull_rating, id, image_url, danger } = props;
   const navigate = useNavigate();
 
   return (
@@ -23,11 +24,11 @@ export const AdventureListItem = (props: IAdventureListItemProps) => {
       </div>
 
       <div className="flex flex-row">
-        <div className="relative mb-4 w-1/4 rounded-lg">
+        <div className="relative mb-4 w-1/4 rounded-lg ml-4">
           <img
             src={image_url}
             alt="Danger Zone"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover rounded-lg"
           />
         </div>
 
@@ -56,18 +57,11 @@ export const AdventureListItem = (props: IAdventureListItemProps) => {
       </div>
 
       <div className="flex flex-wrap gap-2 p-4 justify-center">
-        <span className="bg-red-700 text-white px-3 py-1 rounded-full text-sm font-semibold">
-          Extreme Sports
-        </span>
-        <span className="bg-red-700 text-white px-3 py-1 rounded-full text-sm font-semibold">
-          Mountain Climbing
-        </span>
-        <span className="bg-red-700 text-white px-3 py-1 rounded-full text-sm font-semibold">
-          Shark Diving
-        </span>
-        <span className="bg-red-700 text-white px-3 py-1 rounded-full text-sm font-semibold">
-          Volcano Trekking
-        </span>
+        {danger.map((item, index) => (
+          <span className="bg-red-700 text-white px-3 py-1 rounded-full text-sm font-semibold">
+            {item}
+          </span>
+        ))}
       </div>
     </div>
   );

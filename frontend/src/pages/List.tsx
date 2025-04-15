@@ -9,7 +9,6 @@ export const List = () => {
           <AdventureListItem {...trip} />
         ))}
       </div>
-      <div className="w-2/5 border border-gray-300 rounded-lg shadow-md bg-white p-4"></div>
     </div>
   );
 };

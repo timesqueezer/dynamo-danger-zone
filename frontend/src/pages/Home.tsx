@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router";
+
 export const Home = () => {
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col items-center justify-center bg-gray-50">
       <h1 className="text-4xl font-bold text-gray-800">
@@ -7,7 +10,10 @@ export const Home = () => {
       <p className="mt-4 text-lg text-gray-600">
         Get ready for an adrenaline-pumping experience!
       </p>
-      <button className="mt-6 px-4 py-2 bg-red-700 text-white rounded-md hover:bg-red-800 transition duration-200">
+      <button
+        className="mt-6 px-4 py-2 bg-red-700 text-white rounded-md hover:bg-red-800 transition duration-200 cursor-pointer"
+        onClick={() => navigate("/list")}
+      >
         Start Your Adventure
       </button>
     </div>

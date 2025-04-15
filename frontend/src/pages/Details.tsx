@@ -56,7 +56,12 @@ export const Details = () => {
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="mb-10">
+        <h2 className="font-bold text-lg mb-2">Beschreibung</h2>
+        <p className="text-sm text-gray-700">{description}</p>
+      </div>
+
+      <div className="grid grid-cols-2 md:grid-cols-2 gap-6">
         <div>
           <h2 className="font-bold text-lg mb-2">Gefahren</h2>
           <p className="text-sm text-gray-700">{danger}</p>
@@ -67,11 +72,6 @@ export const Details = () => {
           <p className="text-sm text-gray-700">{why_go}</p>
         </div>
 
-        <div className="md:col-span-2">
-          <h2 className="font-bold text-lg mb-2">Beschreibung</h2>
-          <p className="text-sm text-gray-700">{description}</p>
-        </div>
-
         <div>
           <h2 className="font-bold text-lg mb-2">Skull Rating</h2>
           <p className="text-2xl">{getSkullRatingVisual(skull_rating)}</p>
@@ -79,15 +79,11 @@ export const Details = () => {
       </div>
 
       <div className="mt-8 flex flex-wrap gap-3 justify-center">
-        <span className="bg-red-700 text-white px-3 py-1 rounded-full text-sm font-semibold">
-          Abenteuer
-        </span>
-        <span className="bg-red-700 text-white px-3 py-1 rounded-full text-sm font-semibold">
-          Gefährlich
-        </span>
-        <span className="bg-red-700 text-white px-3 py-1 rounded-full text-sm font-semibold">
-          Einmalig
-        </span>
+        {danger.map((item) => (
+          <span className="bg-red-700 text-white px-3 py-1 rounded-full text-sm font-semibold">
+            {item}
+          </span>
+        ))}
       </div>
     </div>
   );
