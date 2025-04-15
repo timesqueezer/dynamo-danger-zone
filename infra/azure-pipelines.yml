@@ -138,25 +138,25 @@ stages:
 
                 echo "Variable group '$groupName' has been updated with latest infrastructure outputs."
 
-- stage: deploy_backend
-  jobs:
-  - deployment: DeployApp
-    environment: ${{ parameters.environmentName }}
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - checkout: self
-          - task: NodeTool@0
-            inputs:
-              versionSpec: '20.x'
+# - stage: deploy_backend
+#   jobs:
+#   - deployment: DeployApp
+#     environment: ${{ parameters.environmentName }}
+#     strategy:
+#       runOnce:
+#         deploy:
+#           steps:
+#           - checkout: self
+#           - task: NodeTool@0
+#             inputs:
+#               versionSpec: '20.x'
 
-          - task: AzureWebApp@1
-            inputs:
-              azureSubscription: 'dynamo-danger-zone-resource-service-connection'
-              appName: $(BACKEND_WEBAPP_NAME)
-              package: '$(Build.SourcesDirectory)/backend'
-              deploymentMethod: 'zipDeploy'
+#           - task: AzureWebApp@1
+#             inputs:
+#               azureSubscription: 'dynamo-danger-zone-resource-service-connection'
+#               appName: $(BACKEND_WEBAPP_NAME)
+#               package: '$(Build.SourcesDirectory)/backend'
+#               deploymentMethod: 'zipDeploy'
 
 - stage: deploy_frontend
   jobs:
