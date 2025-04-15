@@ -6,11 +6,11 @@ export const AdventureListItem = () => {
       </div>
 
       <div className="flex flex-row">
-        <div className="relative mb-4 w-1/4 rounded-lg">
+        <div className="relative mb-4 cursor-pointer" onClick={() => setIsImageOpen(true)}>
           <img
-            src="/danger_zone_image.jpg"
-            alt="Danger Zone"
-            className="w-full h-full object-cover"
+              src="/danger_zone_image.jpg"
+              alt="Danger Zone"
+              className="w-full h-auto object-cover hover:opacity-90 transition"
           />
         </div>
 
