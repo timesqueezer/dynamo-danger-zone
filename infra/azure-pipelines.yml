@@ -62,6 +62,7 @@ stages:
                 echo "Fetching deployment outputs..."
                 outputs=$(az deployment group show \
                   --name infra-deployment-${{ parameters.environmentName }} \
+                  --resource-group rg-Matz-Jona-Radloff \
                   --output json \
                   --query "properties.outputs")
 
