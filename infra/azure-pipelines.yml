@@ -19,7 +19,7 @@ parameters:
   - prod
 
 variables:
-- group: azure-sample-${{ parameters.environmentName }}-vg
+- group: dynamo-danger-zone-${{ parameters.environmentName }}-vg
 
 stages:
 - stage: Validate
@@ -28,7 +28,7 @@ stages:
     steps:
     - task: AzureCLI@2
       inputs:
-        azureSubscription: 'azure-sample-resource-service-connection'
+        azureSubscription: 'dynamo-danger-zone-resource-service-connection'
         scriptType: 'bash'
         scriptLocation: 'inlineScript'
         inlineScript: |
@@ -48,7 +48,7 @@ stages:
           - task: AzureCLI@2
             name: InfraDeployment  # Named step for output reference
             inputs:
-              azureSubscription: 'azure-sample-resource-service-connection'
+              azureSubscription: 'dynamo-danger-zone-resource-service-connection'
               scriptType: 'bash'
               scriptLocation: 'inlineScript'
               inlineScript: |
@@ -86,7 +86,7 @@ stages:
             env:
               AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
             inputs:
-              azureSubscription: 'azure-sample-resource-service-connection'
+              azureSubscription: 'dynamo-danger-zone-resource-service-connection'
               scriptType: 'bash'
               scriptLocation: 'inlineScript'
               inlineScript: |
@@ -95,7 +95,7 @@ stages:
 
                 az devops configure --defaults organization=$(System.CollectionUri) project=$(System.TeamProject)
 
-                groupName="azure-sample-${{ parameters.environmentName }}-vg"
+                groupName="dynamo-danger-zone-${{ parameters.environmentName }}-vg"
                 echo "Creating/updating variable group: $groupName"
 
                 existingGroup=$(az pipelines variable-group list --query "[?name=='$groupName'].name" -o tsv)
@@ -152,7 +152,7 @@ stages:
 
           - task: AzureWebApp@1
             inputs:
-              azureSubscription: 'azure-sample-resource-service-connection'
+              azureSubscription: 'dynamo-danger-zone-resource-service-connection'
               appName: $(BACKEND_WEBAPP_NAME)
               package: '$(Build.SourcesDirectory)/backend'
               deploymentMethod: 'zipDeploy'
@@ -188,7 +188,7 @@ stages:
 
           - task: AzureWebApp@1
             inputs:
-              azureSubscription: 'azure-sample-resource-service-connection'
+              azureSubscription: 'dynamo-danger-zone-resource-service-connection'
               appName: $(FRONTEND_WEBAPP_NAME)
               package: '$(Build.SourcesDirectory)/frontend/dist'
               deploymentMethod: 'zipDeploy'
