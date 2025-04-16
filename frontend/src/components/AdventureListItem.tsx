@@ -17,6 +17,8 @@ export const AdventureListItem = (props: IAdventureListItemProps) => {
   const { name, description, skull_rating, id, image_url, danger, why_go } = props;
   const [imgError, setImgError] = useState(false);
 
+  const computedImgUrl = image_url.startsWith("http") ? image_url : `${import.meta.env.VITE_BACKEND_API_URL}${image_url}`;
+
   return (
     <Link
       className="border border-gray-200 rounded-xl shadow-md bg-white mb-6 cursor-pointer transition-transform duration-200 hover:scale-105 hover:shadow-xl group"
@@ -25,7 +27,7 @@ export const AdventureListItem = (props: IAdventureListItemProps) => {
       <div className="flex flex-col md:flex-row pt-4">
         <div className="relative mb-4 w-full md:w-1/4 rounded-lg ml-0 md:ml-4 overflow-hidden">
           <img
-            src={imgError ? '/build/danger_zone_image.jpg' : image_url}
+            src={imgError ? '/build/danger_zone_image.jpg' : computedImgUrl}
             alt="Danger Zone"
             className="w-full h-48 md:h-full object-cover rounded-lg group-hover:brightness-90 transition duration-200"
             onError={() => setImgError(true)}
