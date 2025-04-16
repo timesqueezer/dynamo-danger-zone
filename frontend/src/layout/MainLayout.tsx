@@ -26,18 +26,18 @@ export const MainLayout = (props: IMainLayoutProps) => {
       <div className=" p-6 gap-6">{children}</div>
 
       {/* Navigation bar */}
-      <div className="p-4 text-center mt-2 flex justify-center gap-4 bg-gray-100 rounded-b-lg border-t border-gray-300">
+      <div className="p-4 text-center mt-2 flex flex-wrap justify-center gap-4 bg-gradient-to-r from-red-700 to-red-900 rounded-b-lg border-t border-gray-300 shadow-md">
         {/* Navigation links */}
         <button
-          className="bg-red-700 hover:bg-red-800 text-white px-6 py-3 rounded-md cursor-pointer transition duration-200 shadow-md font-semibold cursor-pointer"
+          className="bg-red-700 hover:bg-red-800 text-white px-6 py-3 rounded-md cursor-pointer transition duration-200 shadow-md font-semibold focus:outline-none focus:ring-2 focus:ring-red-400"
           onClick={() => navigate("/list")}
         >
           All Trips
         </button>
-        <button className="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-md cursor-pointer transition duration-200 shadow-md font-semibold">
+        <button className="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-md cursor-pointer transition duration-200 shadow-md font-semibold focus:outline-none focus:ring-2 focus:ring-gray-400">
           Sorted by Dangerousness
         </button>
-        <button className="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-md cursor-pointer transition duration-200 shadow-md font-semibold">
+        <button className="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-md cursor-pointer transition duration-200 shadow-md font-semibold focus:outline-none focus:ring-2 focus:ring-gray-400">
           Book Now
         </button>
       </div>

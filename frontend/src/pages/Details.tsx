@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import { FullScreenViewer } from "react-iv-viewer";
 import { useNavigate, useParams } from "react-router";
 import { getSkullRatingVisual } from "../helper";
+import { Trip } from "../types/Trip";
+import { LoadingSpinner } from "../components/LoadingSpinner";
 
 export const Details = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [trip, setTrip] = useState<any | null>(null);
+  const [trip, setTrip] = useState<Trip | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -20,7 +22,7 @@ export const Details = () => {
           ...data,
           id,
           danger: Array.isArray(data.danger) ? data.danger : String(data.danger).split(/, ?/),
-          description: data.description || data.danger,
+          description: data.description ?? data.danger,
         });
       } catch (e: any) {
         setError(e.message);
@@ -31,11 +33,11 @@ export const Details = () => {
     fetchTrip();
   }, [id]);
 
-  if (loading) return <div>Lade Trip...</div>;
+  if (loading) return <LoadingSpinner />;
   if (error || !trip) {
     return (
       <div className="text-center text-red-600 font-bold mt-10">
-        {error || "Trip nicht gefunden."}
+        {error ?? "Trip nicht gefunden."}
       </div>
     );
   }

@@ -1,1 +1,1 @@
-// (remove all content, this file is not needed with Vite)
+// Remove all content, file is obsolete after Vite migration

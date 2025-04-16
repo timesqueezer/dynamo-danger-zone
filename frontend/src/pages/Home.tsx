@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router";
 import { getSkullRatingVisual } from "../helper";
+import { Trip } from "../types/Trip";
+import { LoadingSpinner } from "../components/LoadingSpinner";
 
 export const Home = () => {
-  const [featuredTrip, setFeaturedTrip] = useState<any | null>(null);
+  const [featuredTrip, setFeaturedTrip] = useState<Trip | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
@@ -21,7 +23,7 @@ export const Home = () => {
           ...trip,
           id: idx.toString(),
           danger: Array.isArray(trip.danger) ? trip.danger : String(trip.danger).split(/, ?/),
-          description: trip.description || trip.danger,
+          description: trip.description ?? trip.danger,
         });
       } catch (e: any) {
         setError(e.message);
@@ -32,8 +34,8 @@ export const Home = () => {
     fetchTrips();
   }, []);
 
-  if (loading) return <div>Lade Trip...</div>;
-  if (error || !featuredTrip) return <div className="text-red-600">{error || "Trip nicht gefunden."}</div>;
+  if (loading) return <LoadingSpinner />;
+  if (error || !featuredTrip) return <div className="text-red-600">{error ?? "Trip nicht gefunden."}</div>;
 
   const { id, name, description, skull_rating, image_url, danger, why_go } = featuredTrip;
 
