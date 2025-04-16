@@ -1,18 +1,41 @@
+import React, { useEffect, useState } from "react";
 import { FullScreenViewer } from "react-iv-viewer";
 import { useNavigate, useParams } from "react-router";
-import { Trips } from "../constants";
 import { getSkullRatingVisual } from "../helper";
 
 export const Details = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [trip, setTrip] = useState<any | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const trip = Trips.find((t) => t.id === id);
+  useEffect(() => {
+    const fetchTrip = async () => {
+      try {
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_API_URL}/api/destinations/${id}`);
+        if (!res.ok) throw new Error("Trip nicht gefunden");
+        const data = await res.json();
+        setTrip({
+          ...data,
+          id,
+          danger: Array.isArray(data.danger) ? data.danger : String(data.danger).split(/, ?/),
+          description: data.description || data.danger,
+        });
+      } catch (e: any) {
+        setError(e.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchTrip();
+  }, [id]);
 
-  if (!trip) {
+  if (loading) return <div>Lade Trip...</div>;
+  if (error || !trip) {
     return (
       <div className="text-center text-red-600 font-bold mt-10">
-        Trip nicht gefunden.
+        {error || "Trip nicht gefunden."}
       </div>
     );
   }
@@ -58,7 +81,7 @@ export const Details = () => {
       <div className="grid grid-cols-2 md:grid-cols-2 gap-6">
         <div>
           <h2 className="font-bold text-lg mb-2">Gefahren</h2>
-          <p className="text-sm text-gray-700">{danger}</p>
+          <p className="text-sm text-gray-700">{danger.join(", ")}</p>
         </div>
 
         <div>
@@ -73,7 +96,7 @@ export const Details = () => {
       </div>
 
       <div className="mt-8 flex flex-wrap gap-3 justify-center">
-        {danger.map((item) => (
+        {danger.map((item: string) => (
           <span className="bg-red-700 text-white px-3 py-1 rounded-full text-sm font-semibold" key={item}>
             {item}
           </span>

@@ -1,14 +1,42 @@
+import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router";
-import { Trips } from "../constants";
 import { getSkullRatingVisual } from "../helper";
 
 export const Home = () => {
-  const featuredTrip = Trips.find(
-    (trip) => trip.id === "b2dbce43-418f-4ae0-b8cc-71eb4e0ec31e"
-  );
-  const { id, name, description, skull_rating, image_url, danger, why_go } =
-    featuredTrip || { skull_rating: 0, danger: [] };
+  const [featuredTrip, setFeaturedTrip] = useState<any | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchTrips = async () => {
+      try {
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_API_URL}/api/destinations`);
+        if (!res.ok) throw new Error("Fehler beim Laden der Trips");
+        const data = await res.json();
+        // Use the last trip as featured (like before)
+        const idx = data.length - 1;
+        const trip = data[idx];
+        setFeaturedTrip({
+          ...trip,
+          id: idx.toString(),
+          danger: Array.isArray(trip.danger) ? trip.danger : String(trip.danger).split(/, ?/),
+          description: trip.description || trip.danger,
+        });
+      } catch (e: any) {
+        setError(e.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchTrips();
+  }, []);
+
+  if (loading) return <div>Lade Trip...</div>;
+  if (error || !featuredTrip) return <div className="text-red-600">{error || "Trip nicht gefunden."}</div>;
+
+  const { id, name, description, skull_rating, image_url, danger, why_go } = featuredTrip;
+
   return (
     <div className="flex flex-col items-center justify-center bg-gray-50">
       <h1 className="text-4xl font-bold text-gray-800">
@@ -66,7 +94,7 @@ export const Home = () => {
         </div>
 
         <div className="flex flex-wrap gap-2 p-4 justify-center">
-          {danger.map((item) => (
+          {danger.map((item: string) => (
             <span className="bg-red-700 text-white px-3 py-1 rounded-full text-sm font-semibold" key={item}>
               {item}
             </span>
