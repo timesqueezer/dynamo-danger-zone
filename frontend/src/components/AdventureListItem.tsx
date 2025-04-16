@@ -17,7 +17,7 @@ export const AdventureListItem = (props: IAdventureListItemProps) => {
   const { name, description, skull_rating, id, image_url, danger, why_go } = props;
   const [imgError, setImgError] = useState(false);
 
-  const computedImgUrl = image_url.startsWith("http") ? image_url : `${import.meta.env.VITE_BACKEND_API_URL}${image_url}`;
+  const computedImgUrl = image_url.startsWith("http") ? image_url : `${import.meta.env.VITE_BACKEND_API_URL}/${image_url}`;
 
   return (
     <Link

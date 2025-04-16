@@ -40,6 +40,8 @@ export const Home = () => {
 
   const { id, name, description, skull_rating, image_url, danger, why_go } = featuredTrip;
 
+  const computedImgUrl = image_url.startsWith("http") ? image_url : `${import.meta.env.VITE_BACKEND_API_URL}/${image_url}`;
+
   return (
     <div className="flex flex-col items-center justify-center bg-gradient-to-br from-gray-50 to-gray-200 min-h-[60vh] rounded-xl shadow p-8">
       <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-2 text-center">
@@ -61,7 +63,7 @@ export const Home = () => {
         <div className="flex flex-col md:flex-row pt-4 items-center gap-6">
           <div className="relative mb-4 w-full md:w-1/3 rounded-xl overflow-hidden">
             <img
-              src={image_url}
+              src={computedImgUrl}
               alt="Danger Zone"
               className="w-full h-48 md:h-40 object-cover rounded-xl shadow"
             />
