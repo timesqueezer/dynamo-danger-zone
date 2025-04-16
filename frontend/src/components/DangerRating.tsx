@@ -1,12 +1,18 @@
 import React from "react";
 
+import image1 from "../../assets/1.png";
+import image2 from "../../assets/2.png";
+import image3 from "../../assets/3.png";
+import image4 from "../../assets/4.png";
+import image5 from "../../assets/5.png";
+
 // Map rating to image file names (place your images in build/ or assets/)
 const dangerImages = [
-  "/build/danger1.png",
-  "/build/danger2.png",
-  "/build/danger3.png",
-  "/build/danger4.png",
-  "/build/danger5.png",
+  image1,
+  image2,
+  image3,
+  image4,
+  image5,
 ];
 
 interface DangerRatingProps {
@@ -24,7 +30,7 @@ export const DangerRating: React.FC<DangerRatingProps> = ({ rating, size = 40 })
           key={idx}
           src={dangerImages[idx]}
           alt={`Danger rating: ${idx + 1}`}
-          style={{ width: size, height: size, display: "inline-block" }}
+          style={{ width: size, height: size, display: "inline-block", filter: "invert(1)" }}
           loading="lazy"
         />
       ))}
