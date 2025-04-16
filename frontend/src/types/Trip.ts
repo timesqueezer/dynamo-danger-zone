@@ -8,4 +8,5 @@ export interface Trip {
   danger: string[];
   why_go: string;
   country?: string;
+  booked?: boolean;
 }

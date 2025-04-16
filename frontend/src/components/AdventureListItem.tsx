@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router";
-import { getSkullRatingVisual } from "../helper";
+import { DangerRating } from "./DangerRating";
 
 interface IAdventureListItemProps {
   name: string;
@@ -10,6 +10,7 @@ interface IAdventureListItemProps {
   image_url: string;
   danger: string[];
   why_go: string;
+  booked?: boolean;
 }
 
 export const AdventureListItem = (props: IAdventureListItemProps) => {
@@ -47,7 +48,7 @@ export const AdventureListItem = (props: IAdventureListItemProps) => {
           <div className="grid grid-cols-1 md:grid-cols-3">
             <dt className="text-sm/6 font-medium font-semibold">Rating:</dt>
             <dd className="mt-1 text-sm/6 text-gray-100 md:col-span-2 md:mt-0">
-              {getSkullRatingVisual(skull_rating)}
+              <DangerRating rating={skull_rating} />
             </dd>
           </div>
         </div>
@@ -58,6 +59,9 @@ export const AdventureListItem = (props: IAdventureListItemProps) => {
             {item}
           </span>
         ))}
+        {props.booked && (
+          <span className="ml-2 px-3 py-1 rounded-full text-xs font-bold bg-gray-300 text-gray-700 border border-gray-400 shadow-sm">Gebucht</span>
+        )}
       </div>
     </Link>
   );

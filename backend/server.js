@@ -112,6 +112,21 @@ const saveData = () => {
   fs.writeFileSync(path.join(__dirname, 'data.json'), JSON.stringify(destinations, null, 2));
 };
 
+// Store contact requests in memory and in a file
+const CONTACT_FILE = path.join(__dirname, 'contact_requests.json');
+let contactRequests = [];
+try {
+  if (fs.existsSync(CONTACT_FILE)) {
+    contactRequests = JSON.parse(fs.readFileSync(CONTACT_FILE, 'utf8'));
+  }
+} catch (err) {
+  contactRequests = [];
+}
+
+function saveContactRequests() {
+  fs.writeFileSync(CONTACT_FILE, JSON.stringify(contactRequests, null, 2));
+}
+
 // Routes
 
 // GET all destinations
@@ -187,6 +202,42 @@ app.delete('/api/destinations/:id', (req, res) => {
   destinations.splice(id, 1);
   saveData();
   res.json(deletedDestination);
+});
+
+// BOOK a destination
+app.post('/api/destinations/:id/book', (req, res) => {
+  const id = parseInt(req.params.id);
+  if (isNaN(id) || id < 0 || id >= destinations.length) {
+    return res.status(404).json({ message: 'Destination not found' });
+  }
+  if (destinations[id].booked) {
+    return res.status(400).json({ message: 'This trip is already booked.' });
+  }
+  destinations[id].booked = true;
+  saveData();
+  res.json({ message: 'Trip successfully booked!' });
+});
+
+// POST contact request
+app.post('/api/contact', (req, res) => {
+  const { name, email, message } = req.body;
+  if (!name || !email || !message) {
+    return res.status(400).json({ message: 'Name, E-Mail und Nachricht sind erforderlich.' });
+  }
+  const entry = {
+    name,
+    email,
+    message,
+    date: new Date().toISOString(),
+  };
+  contactRequests.push(entry);
+  saveContactRequests();
+  res.status(201).json({ message: 'Kontaktanfrage gespeichert.' });
+});
+
+// GET all contact requests
+app.get('/api/contact', (req, res) => {
+  res.json(contactRequests);
 });
 
 // Start server

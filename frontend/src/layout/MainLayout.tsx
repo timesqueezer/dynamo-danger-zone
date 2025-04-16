@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router";
+import { Link } from "react-router";
 
 interface IMainLayoutProps {
   children?: React.ReactNode;
@@ -6,41 +6,34 @@ interface IMainLayoutProps {
 
 export const MainLayout = (props: IMainLayoutProps) => {
   const { children } = props;
-  const navigate = useNavigate();
   return (
-    <div className="max-w-6xl mx-auto bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-200 flex flex-col">
       {/* Header with logo and site name */}
-      <header className="flex items-center p-6 bg-gradient-to-r from-red-700 to-red-900 text-white rounded-t-lg">
-        <div className="p-3 w-28 bg-white rounded-lg shadow-md">
-          <img src="/logo_black.webp" alt="Logo" className="w-full h-auto" />
-        </div>
-        <div className="p-4 ml-4 text-3xl font-extrabold tracking-wide">
-          Dynamo Danger Zone
-          <div className="text-sm font-normal mt-1 text-red-200">
-            Extreme adventures for thrill seekers
+      <header className="flex flex-col md:flex-row items-center justify-between p-8 bg-white shadow-sm rounded-b-2xl border-b border-gray-100 mb-6">
+        <div className="flex items-center gap-4">
+          <img src="/logo_black.webp" alt="Logo" className="w-16 h-16 rounded-lg shadow" />
+          <div>
+            <div className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">Dynamo Danger Zone</div>
+            <div className="text-sm text-gray-400 font-medium mt-1">Extreme Abenteuer für Adrenalinjunkies</div>
           </div>
         </div>
+        <nav className="flex gap-2 mt-6 md:mt-0">
+          <Link
+            className="px-5 py-2 rounded-lg font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 transition border border-gray-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-300"
+            to="/list"
+          >
+            Alle Trips
+          </Link>
+          <Link
+            className="px-5 py-2 rounded-lg font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 transition border border-gray-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-300"
+            to="/contact"
+          >
+            Kontakt
+          </Link>
+        </nav>
       </header>
-
       {/* Main content area */}
-      <div className=" p-6 gap-6">{children}</div>
-
-      {/* Navigation bar */}
-      <div className="p-4 text-center mt-2 flex flex-wrap justify-center gap-4 bg-gradient-to-r from-red-700 to-red-900 rounded-b-lg border-t border-gray-300 shadow-md">
-        {/* Navigation links */}
-        <button
-          className="bg-red-700 hover:bg-red-800 text-white px-6 py-3 rounded-md cursor-pointer transition duration-200 shadow-md font-semibold focus:outline-none focus:ring-2 focus:ring-red-400"
-          onClick={() => navigate("/list")}
-        >
-          All Trips
-        </button>
-        <button className="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-md cursor-pointer transition duration-200 shadow-md font-semibold focus:outline-none focus:ring-2 focus:ring-gray-400">
-          Sorted by Dangerousness
-        </button>
-        <button className="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-md cursor-pointer transition duration-200 shadow-md font-semibold focus:outline-none focus:ring-2 focus:ring-gray-400">
-          Book Now
-        </button>
-      </div>
+      <main className="flex-1 w-full max-w-5xl mx-auto px-4 py-8">{children}</main>
     </div>
   );
 };
