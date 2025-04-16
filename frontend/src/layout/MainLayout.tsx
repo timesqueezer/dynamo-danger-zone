@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-
+import logoBlack from "../assets/logo_black.webp";
 interface IMainLayoutProps {
   children?: React.ReactNode;
 }
@@ -11,10 +11,18 @@ export const MainLayout = (props: IMainLayoutProps) => {
       {/* Header with logo and site name */}
       <header className="flex flex-col md:flex-row items-center justify-between p-8 bg-white shadow-sm rounded-b-2xl border-b border-gray-100 mb-6">
         <div className="flex items-center gap-4">
-          <img src="/logo_black.webp" alt="Logo" className="w-16 h-16 rounded-lg shadow" />
+          <img
+            src={logoBlack}
+            alt="Logo"
+            className="w-16 h-16 rounded-lg shadow"
+          />
           <div>
-            <div className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">Dynamo Danger Zone</div>
-            <div className="text-sm text-gray-400 font-medium mt-1">Extreme Abenteuer für Adrenalinjunkies</div>
+            <div className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">
+              Dynamo Danger Zone
+            </div>
+            <div className="text-sm text-gray-400 font-medium mt-1">
+              Extreme Abenteuer für Adrenalinjunkies
+            </div>
           </div>
         </div>
         <nav className="flex gap-2 mt-6 md:mt-0">
@@ -33,7 +41,9 @@ export const MainLayout = (props: IMainLayoutProps) => {
         </nav>
       </header>
       {/* Main content area */}
-      <main className="flex-1 w-full max-w-5xl mx-auto px-4 py-8">{children}</main>
+      <main className="flex-1 w-full max-w-5xl mx-auto px-4 py-8">
+        {children}
+      </main>
     </div>
   );
 };
