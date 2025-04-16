@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { AdventureListItem } from "../components/AdventureListItem";
 import { Trip } from "../types/Trip";
 import { LoadingSpinner } from "../components/LoadingSpinner";
+import { RangeSlider } from "../components/RangeSlider";
 
 const RISK_MIN = 1;
 const RISK_MAX = 5;
@@ -10,11 +11,10 @@ export const List = () => {
   const [trips, setTrips] = useState<Trip[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [minRisk, setMinRisk] = useState(RISK_MIN);
-  const [maxRisk, setMaxRisk] = useState(RISK_MAX);
+  const [riskRange, setRiskRange] = useState<[number, number]>([RISK_MIN, RISK_MAX]);
 
   const filteredTrips = trips.filter(
-    (trip) => trip.skull_rating >= minRisk && trip.skull_rating <= maxRisk
+    (trip) => trip.skull_rating >= riskRange[0] && trip.skull_rating <= riskRange[1]
   );
 
   useEffect(() => {
@@ -40,16 +40,6 @@ export const List = () => {
     fetchTrips();
   }, []);
 
-  // Handle slider changes
-  const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>, which: 'min' | 'max') => {
-    const value = Number(e.target.value);
-    if (which === 'min') {
-      setMinRisk(Math.min(value, maxRisk));
-    } else {
-      setMaxRisk(Math.max(value, minRisk));
-    }
-  };
-
   if (loading) return <LoadingSpinner />;
   if (error) return <div className="text-red-600">{error}</div>;
   if (!loading && !error && trips.length === 0) {
@@ -68,33 +58,12 @@ export const List = () => {
       <div className="flex flex-col items-center mb-8">
         <div className="w-full max-w-md flex flex-col gap-2">
           <label className="font-semibold text-gray-700 text-center mb-2">Gefahrenlevel-Bereich</label>
-          <div className="flex items-center gap-4">
-            <span className="text-gray-700 font-bold">{minRisk}</span>
-            <input
-              type="range"
-              min={RISK_MIN}
-              max={RISK_MAX}
-              value={minRisk}
-              onChange={e => handleSliderChange(e, 'min')}
-              className="w-full accent-red-600"
-              step={1}
-              style={{ zIndex: 2 }}
-            />
-            <span className="text-gray-700 font-bold">{maxRisk}</span>
-            <input
-              type="range"
-              min={RISK_MIN}
-              max={RISK_MAX}
-              value={maxRisk}
-              onChange={e => handleSliderChange(e, 'max')}
-              className="w-full accent-red-600"
-              step={1}
-              style={{ marginLeft: -32, zIndex: 1 }}
-            />
-          </div>
-          <div className="flex justify-between text-xs text-gray-400 px-1 mt-1">
-            {[1,2,3,4,5].map(n => <span key={n}>{n}</span>)}
-          </div>
+          <RangeSlider
+            min={RISK_MIN}
+            max={RISK_MAX}
+            value={riskRange}
+            onChange={setRiskRange}
+          />
         </div>
       </div>
       <div className="flex flex-col gap-6">
